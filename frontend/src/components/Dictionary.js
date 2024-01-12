@@ -108,7 +108,7 @@ export default function Dictionary() {
 
     try {
       const response = await fetch(
-        `https://saha-translator-fddb8f132901.herokuapp.com/api/words/${lowercaseClickedWord}`
+        `https://saha-translator-b529f28a8ca2.herokuapp.com/api/words/${lowercaseClickedWord}`
       );
 
       if (!response.ok) {
