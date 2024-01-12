@@ -1,6 +1,7 @@
 // Import necessary packages
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
@@ -29,3 +30,13 @@ app.use("/api/words", wordRouter);
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
+// Serve frontend
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) =>
+  res.sendFile(
+    path.resolve(__dirname, "../", "frontend", "build", "index.html")
+  )
+);
